@@ -12,8 +12,11 @@ Then it shows the new provinces annexed to the Empire, the expeditions in Africa
 
 ![](img/ss2.JPG)
 
-<a href:="https://gsvevo.github.io/resgestae/" target="_blank">GO TO THE STORYMAP</a>
- <a href:="https://jquery.com/">JQuery</a>
+
+
+GO TO THE [STORYMAP](https://gsvevo.github.io/resgestae/)
+
+
 
 ## Credits
 
