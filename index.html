@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Res Gestae</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--meta data for sharing links on Facebook-->
+    <meta property="og:title" content="Res Gestae Divi Augusti"/>
+    <meta property="og:url" content="http://geoviz.ceoas.oregonstate.edu/storymap/examples/2.4/video.html"/>
+    <meta property="og:description" content="This is an example of a storymap."/>
+    <!--<meta property="og:image" content="../../img/social.png"/>-->
+
+    <!--add required stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!--leaflet css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
+
+
+    <!--add favicon for the web page-->
+    <link rel="icon" href="img/favicon.gif" type="image/gif" sizes="16x16">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/storymap.css">
+    <!--add required libraries-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+    <!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!--boostrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!--leaflet.ajax for asynchronously adding geojson data-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <!--mini globle map-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="../../js/globeminimap.js"></script>
+    
+    <!--moving markers-->
+    <script type="text/javascript" src="js/MovingMarker.js"></script>
+    
+    <!--ant-path-->
+    <script src="https://unpkg.com/leaflet-ant-path" type="text/javascript"></script>
+
+    <!--swoopy-->
+    <script src="js\Leaflet.SwoopyArrow-customized.js" type="text/javascript"></script>
+
+    <!--story map plugin-->
+    <script src="js/storymap.js"></script>
+</head>
+<body>
+
+<div id="storymap" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 storymap-story">
+            <section data-scene="overview" data-background="img/prima.png">
+                <div class="fullscreen text-center">
+
+                    <h1 class="display-4 d-flex justify-content-center">Res Gestae Divi Augusti</h1>
+
+
+                    <h3 class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">Expanding the Empire beyond its borders
+                    </h3>
+                </div>
+            </section>
+            <section data-scene="intro">
+                   <img class=subject-image-2 src="img/augustus.png" />
+                <h2>Res Gestae Divi Augusti</h2>  
+                <p><i>Res Gestae Divi Augusti</i> (The Deeds of the Divine Augustus) also known as <i> Index rerum gestarum</i>, are a report written by the Roman emperor Augustus before his death and concerning the accomplishments he obtained during his long political career. The text has arrived engraved in Latin and in Greek translation on the walls of the temple of Augustus and of the goddess Roma (Monumentum Ancyranum) in Ancyra, today's Ankara in Turkey.</p>
+                 <p><img src="img/rg.jpg" class="img-responsive img-thumbnail" alt="responsive image" alt-text="Res Gestae at the Ara Pacis (Rome)"></p>
+                <p>The text consists of a short introduction, 35 body paragraphs, and a posthumous addendum. These paragraphs are conventionally grouped in four sections: political career, public benefactions, military accomplishments and a political statement.</p>
+                <p>This storymap will focus on the third section, highlighting the explorations, conquests and diplomatic achievements of Augustus outside the borders of the Roman Empire.  </p>
+            </section>
+
+            <section data-scene="cimbri">
+                    <img class=subject-image width:"10%" src="img/trireme.png" />
+                <h2>Naval Exploration</h2>
+                <p><img src="img/trireme.jpg" class="img-responsive img-thumbnail" alt="responsive image" alt-text="Roman ship"></p>
+                <p><i>Classis mea per Oceanum ab ostio Rheni ad solis orientis regionem usque ad fines Cimbrorum navigavit, quo neque terra neque mari quisquam Romanus ante id tempus adit, Cimbrique et Charydes et Semnones et eiusdem tractus alli Germanorum populi per legatos amicitiam mean et populi Romani petierunt. (RG, 26)</i></p>
+                <p>I sailed my ships on the ocean from the mouth of the Rhine to the east region up to the borders of the Cimbri, where no Roman had gone before that time by land or sea, and the Cimbri and the Charydes and the Semnones and the other Germans of the same territory sought by envoys the friendship of me and of the Roman people. (RG, 26)</p>
+
+            </section>
+
+            <section data-scene="pannoni">
+                <img class=subject-image-2 width:"10%" src="img/legionary.png" />
+                <h2>Military Expansion</h2>
+                <p><img src="img/army.jpg" class="img-responsive img-thumbnail" alt="responsive image" alt-text="Roman soldier"></p>
+                <p><i>Omnium provinciarum populi Romani], quibus finitimae fuerunt gentes quae non p[arerent imperio nos]tro, fines auxi. Gallias et Hispanias provincias, i[tem Germaniam qua inclu]dit Oceanus a Gadibus ad ostium Albis flumin[is pacavi. (RG, 26) </p>
+                    <p>
+                Pannoniorum gentes, quas ante me principem populi Romani exercitus numquam adit, devictas per Ti. Neronem, qui tum erat privignus et legatus meus, imperio populi Romani s[ubie]ci protulique fines Illyrici ad ripam fluminis Danuvi. (RG, 30)</i></p>
+                <p>I extended the borders of all the provinces of the Roman people which neighbored nations not subject to our rule. I restored peace to the provinces of Gaul and Spain, likewise Germany, which includes the ocean from Cadiz to the mouth of the river Elbe. (RG, 26)</p>
+                <p>
+                As for the tribes of the Pannonians, before my principate no army of the Roman people had entered their land. When they were conquered through Tiberius Nero, who was then my step-son and emissary, I subjected them to the rule of the Roman people and extended the borders of Illyricum to the shores of the river Danube. (RG, 30)</p>
+            </section>
+
+            <section data-scene="aegyptus">
+                    <img class=subject-image width:"10%" src="img/aegypt.png" />
+                <h2>Terrestrial Exploration</h2>
+                <p><i>Meo iussu et auspicio ducti sunt duo exercitus eodem fere tempore in Aethiopiam et in Arabiam, quae appellatur Eudaemon, maximaeque hostium gentis utriusque copiae caesae sunt in acie et complura oppida capta. In Aethiopiam usque ad oppidum Nabata perventum est, cui proxima est Meroe. In Arabiam usque in fines Sabaeorum processit exercitus ad oppidum Mariba. (RG, 26)</i></p>
+                <p><i>Aegyptum imperio populi Romani adieci. (RG, 27)</i></p>
+                <p><img src="img/camel.jpeg" class="img-responsive img-thumbnail" alt="responsive image" alt-text="Camel"></p>
+                <p>By my order and auspices two armies were led at about the same time into Ethiopia and into that part of Arabia which is called Happy, and the troops of each nation of enemies were slaughtered in battle and many towns captured. They penetrated into Ethiopia all the way to the town Nabata, which is near to Meroe; and into Arabia all the way to the border of the Sabaei, advancing to the town Mariba. (RG, 26) </p>
+                <p> I added Egypt to the rule of the Roman people. (RG, 27)</p>
+            </section>
+            <section data-scene="diplomacy">
+                    <img class=subject-image-2 width:"10%" src="img/primaporta.png" />
+                <h2>Diplomatic Achievements</h2>
+                <p><i>Signa militaria complura per alios duces amissa devictis hostibus reciperavi ex Hispania et Gallia et a Dalmateis. Parthos trium exercitum Romanorum spolia et signa reddere mihi supplicesque amicitiam populi Romani petere coegi. Ea autem si[gn]a in penetrali, quod est in templo Martis Ultoris, reposui. (RG, 29)</i></p>
+                <p><i>Ad me ex In[dia regum legationes saepe missae sunt nunquam visae ante id tempus apud quemquam Romanorum ducem. Nostram amicitiam petierunt per legatos Bastarnae Scythaeque et Sarmatarum qui sunt citra flumen Tanaim et ultra reges. Albanorumque rex et Hiberorum et Medorum. (RG, 31)</i></p>
+                <p><img src="img/capta.jpg" class="img-responsive img-thumbnail" alt="responsive image" alt-text="Parthia Capta"></p>
+                <p>I recovered from Spain, Gaul, and Dalmatia the many military standards lost through other leaders, after defeating te enemies. I compelled the Parthians to return to me the spoils and standards of three Roman armies, and as suppliants to seek the friendship of the Roman people. Furthermore I placed those standards in the sanctuary of the temple of Mars Ultor. (RG, 29)</p>
+                <p>Emissaries from the Indian kings were often sent to me, which had not been seen before that time by any Roman leader. The Bastarnae, the Scythians, and the Sarmatians, who are on this side of the river Don and the kings further away, an the kings of the Albanians, of the Iberians, and of the Medes, sought our friendship through emissaries. (RG, 31)</p>
+            </section>
+
+
+            <section data-scene="end" data-background="img/res-gestae.jpg">
+                <div class="fullscreen text-center">
+                    <h1 class="display-4 d-flex justify-content-center">Salve atque Vale!</h1>
+                    <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">
+                        Thanks for watching!
+                    </small>
+                </div>
+            </section>
+
+        </div>
+        <!--map div-->
+        <div class="col-sm-6 col-md-8 storymap-map"></div>
+    </div>
+
+
+    <dl>
+        <dt>
+            <!--facebook icon-->
+            <a class="fab fa-facebook-square btn"
+               href="https://facebook.com/sharer.php?u="
+               target="_blank"></a>
+        </dt>
+        <dt>
+            <!--github icon -->
+            <a class="fab fa-github btn" href="https://github.com/gsvevo/resgestae" style="top:40px"
+               target="_blank"></a>
+        </dt>
+        <dt>
+            <!--info icon-->
+            <i class="fas fa-info-circle btn" style="top:60px" data-toggle="modal" data-target="#info-modal"></i>
+        </dt>
+    </dl>
+
+    <!--the info page-->
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">About</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This storymap narrates some passages from the famous self-celebratory inscription that the Emperor Augustus wrote for his funerary monument. There are many copies of this inscription, both in Latin and Greek, which reinforces the idea that the main purpose was to spread Augustus' ideas throughout the Empire. The focus of this storymap are the chapters emphasizing the 'foreign policy' successes of Augustus' reign. <p>The story map uses the JavaScript library <a href= "https://github.com/jakobzhao/storymap" target="_blank">storymap.js</a>, version 2.4, realized by Bo Zhao | College of Earth, Ocean, Atmospheric Science | Oregon State University.</p> <p>Other libraries used are <a href= "https://github.com/ewoken/Leaflet.MovingMarker" target="_blank">MovingMarker.js</a>, <a href="https://unpkg.com/leaflet-ant-path">Leaflet Ant Path</a>, <a href:="https://jquery.com/">JQuery</a> and <a href="https://github.com/chriswhong/leaflet-globeminimap">Globeminimap</a></p>
+                    <p>Images in the text are from <a href src="https://commons.wikimedia.org/w/index.php?curid=64322">Wikimedia Commons</a></p>
+                    <p>The icons used in this page have been modified from the original ones at <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> and are licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.</p>
+                    <p>The English translation of the inscription is from <a href="http://classics.mit.edu/Augustus/deeds.html">Thomas Bushnell</a>. </p>
+                    <p>The favicon image was created using an image from <a href="https://it.wikipedia.org/wiki/Res_gestae_divi_Augusti">Wikipedia</a></p>
+                    <p>This story map uses geospatial data created by the autor and a basemap realized using <a href="www.mapbox.com">Mapbox</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- main javascript -->
+<script type="text/javascript">
+
+
+    // Create Legend Contents in html format
+ 
+    // For each layer, the first variable is the layer, the second is the legend. The layer variable can be any kinds of layers that leaflet.js supports.
+    // var layers = {
+    //      layer1: {layer: layer1, legend: legend1},
+    //      layer2: {layer: layer2, legend: legend2}
+    //      ...
+    // }
+
+    var layers = {
+        
+        roman: {layer: L.tileLayer('https://api.mapbox.com/styles/v1/cedrox74/cjhdsf5u927wo2sodgj32sxl0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2Vkcm94NzQiLCJhIjoiY2plM2YzNGZhNjV4NTJ3cXA5b3dpMWQydiJ9.RpG_G_SIxLEVu7ZNSAVPXg')},
+        layer1: {  
+            layer: L.swoopyArrow([32.486571425204104, 47.739588031602388 ], [41.89193, 12.51133], {
+               
+                weight: 2,
+                opacity: 0.7,
+                
+                color: "#ffea00",
+                iconAnchor: [0, 0]
+            })
+        },
+        layer2: {  
+            layer: L.swoopyArrow([ 26.973212690759176, 75.435565615733836], [41.89193, 12.51133], {
+               
+                weight: 2,
+                opacity: 0.7,
+                
+                color: "#ffea00",
+                iconAnchor: [0, 0]
+            })
+        },
+        layer3: {  
+            layer: L.swoopyArrow([48.466524997638651, 35.168855663611396 ], [41.89193, 12.51133], {
+               
+                weight: 2,
+                opacity: 0.7,
+                
+                color: "#ffea00",
+                iconAnchor: [0, 0]
+            })
+        },
+        layer4: {  
+            layer: L.swoopyArrow([ 51.012019073345684, 25.36969527215826], [41.89193, 12.51133], {
+               
+                weight: 2,
+                opacity: 0.7,
+                
+                color: "#ffea00",
+                iconAnchor: [0, 0]
+            })
+        },
+        layer5: {  
+            layer: L.swoopyArrow([52.480883491551985, 33.720061381489245 ], [41.89193, 12.51133], {
+               
+                weight: 2,
+                opacity: 0.7,
+                
+                color: "#ffea00",
+                iconAnchor: [0, 0]
+            })
+        }
+        };
+
+    var scenes = {
+        overview: {lat: 45.0000000, lng: 63.000000, zoom: 5, name: 'Cover Page', layers: []},
+        intro: {lat: 42.0000000, lng: 4.500000, zoom: 4, name: 'Intro', layers: [layers.roman]},
+        cimbri: {lat: 55.0000000, lng: 7.000000, zoom: 4.9, name: 'Naval', layers: ([layers.roman]) },
+        pannoni: {lat: 48.8000000, lng: 7.200000, zoom: 5.6, name: 'War', layers: [layers.roman]},
+        aegyptus: {lat: 25.0000000, lng: 28.000000, zoom: 5, name: 'Egypt', layers: [layers.roman]},
+        diplomacy: {lat: 42.0000000, lng: 8.500000, zoom: 4, name: 'Diplomacy', layers: [layers.roman,layers.layer1, layers.layer2, layers.layer3, layers.layer4, layers.layer5]},
+        end: {lat: 45.0000000, lng: 19.000000, zoom: 5, name: 'The End', layers: [layers.roman]}
+    };
+
+    $('#storymap').storymap({
+        scenes: scenes,
+        baselayer: layers.roman,
+        legend: true, // if you do not want a legend feature, you can simply not define the createLegend function.
+        credits: "",
+        loader: true,
+        scalebar: false,
+        flyo: true,
+        navwidget: true,
+
+        createMap: function () {
+            // create a map in the "map" div, set the view to a given place and zoom
+            var map = L.map($(".storymap-map")[0], {
+                zoomControl: false, scrollWheelZoom: false, fadeAnimation: true,
+                zoomAnimation: true
+            }).setView([44, 12], 7);
+
+            //add an miniglobe
+            new L.Control.GlobeMiniMap({
+                marker: 'red',
+                position: 'bottomright'
+            }).addTo(map);
+
+var cimbric_route = [ [52.3828092815448,5.10282306628278], [ 52.6086838907048,5.32869767544283], [ 52.7700228972477,5.34805835622798], [ 52.9507225845758,5.2770691933491], [ 53.1056080308569,5.25125495230224], [ 53.2798541579233,5.36741903701312], [ 53.3895646823724,5.54811872434116], [ 53.5509036889153,5.63846856800518], [ 53.6154392915325,5.78044689376293], [ 53.6541606531028,6.02568218370812], [ 53.7122426954582,6.32254595574704], [ 53.7767782980754,6.60004904700081], [ 53.8025925391222,7.03243758453576], [ 53.7961389788605,7.38738339893012], [ 53.8154996596457,7.69715429149247], [ 53.8284067801691,7.96820382248453], [ 53.8413139006925,8.21989267269144], [ 53.9187566238331,8.38768523949605], [ 54.1317241124697,8.42640660106634], [ 54.3963200832001,8.31669607661718], [ 54.5770197705281,8.23279979321487], [ 54.7577194578562,8.16826419059772], [ 54.9126049041373,8.16826419059772], [ 55.0158618683248,8.22634623295316], [ 55.1062117119888,8.32314963687889], [ 55.2288293569614,8.37477811897262], [ 55.3385398814106,8.37477811897262], [ 55.4224361648129,8.29088183557031], [ 55.4934253276917,8.13599638928914], [ 55.5386002495238,8.01983230457826], [ 55.5837751713558,8.01337874431654], [ 55.6741250150198,8.0391929853634], [ 55.7580212984221,8.09727502771884], [ 55.8354640215627,8.10372858798056], [ 55.9322674254884,8.10372858798056], [ 56.0742457512462,8.07146078667198], [ 56.2291311975273,8.05210010588683], [ 56.4420986861639,8.06500722641027], [ 56.5905305721834,8.09082146745713], [ 56.6937875363709,8.12308926876571], [ 56.8551265429137,8.23925335347659], [ 57.0100119891949,8.32960319714061], [ 57.1326296341675,8.47803508316007], [ 57.1971652367847,8.68454901153497], [ 57.2036187970464,8.85879513860129], [ 57.2294330380933,9.07821618749962], [ 57.2617008394018,9.24600875430423], [ 57.3520506830659,9.45252268267913], [ 57.4940290088236,9.67194373157746], [ 57.6231002140579,9.83973629838207], [ 57.6747286961517,10.0333431062335], [ 57.6876358166751,10.2140427935616], [ 57.7779856603391,10.3689282398428], [ 57.7779856603391,10.5496279271708], [ 57.8296141424328,10.7303276144988], [ 57.871562284134,10.7480749052185], [ 57.8989899152463,10.7190338840408], [ 57.9199639860968,10.6577250615545], [ 57.9151238159006,10.5383341967128], [ 57.83768109276,10.3156863676836], [ 57.7376509087034,10.1527339710753], [ 57.6666617458245,9.95751377315838], [ 57.6005127531419,9.75584001497977], [ 57.2859016903833,9.25568909469681], [ 57.2649276195327,9.15243213050936], [ 57.2294330380933,8.92010396108759], [ 57.2229794778316,8.74585783402127], [ 57.1842581162613,8.60065272813267], [ 57.145536754691,8.49416898381436], [ 57.0680940315504,8.36187099844919], [ 56.8422194223903,8.17794453099029], [ 56.6776536357166,8.08114112706456], [ 56.4259647855097,8.00369840392397], [ 56.2743061193594,8.01337874431654], [ 55.9580816665353,8.02628586483998], [ 55.6838053554124,7.98111094300797], [ 55.4514771859906,7.96820382248453], [ 55.0965313715963,7.82622549672679], [ 54.9351923650534,7.68424717096905], [ 54.625421472491,7.45191900154728], [ 54.3737326222841,7.10988030767635], [ 54.0833224105069,6.73557381249685], [ 53.8251800000383,6.39998867888763], [ 53.7219230358508,6.15475338894244], [ 53.6154392915325,5.7062309507532], [ 53.5412233485228,5.49649024224744], [ 53.4670074055131,5.24802817217139], [ 53.3831111221108,5.15767832850737], [ 53.3218022996245,5.11250340667536], [ 53.2443595764839,5.09959628615193], [ 53.0765670096793,5.12863730732965], [ 52.8571459607809,5.18671934968509], [ 52.7958371382946,5.24157461190968], [ 52.7409818760701,5.30288343439597], [ 52.6990337343689,5.31579055491941], [ 52.6151374509666,5.28029597347997], [ 52.5231742172371,5.18833273975052], [ 52.3892628418065,5.08830255569393]];
+
+var trireme = L.icon({
+    iconUrl: 'img/trireme.svg',
+    iconSize: [38, 95],
+    iconAnchor:   [30,60],
+    });
+
+
+var marker = L.Marker.movingMarker(cimbric_route,
+    [400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400,400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400,], { icon: trireme, autostart: true, loop: true}).addTo(map);
+
+
+var aethiopian_route = [[31.1652484166513,29.9319633769983],[31.0522866007961,30.1861274626725],[30.9428548416864,30.4508817185832],[30.7063410397395,30.680335407039],[30.3992261028832,30.7615267121849],[30.1238816767362,30.9133191522404],[29.7673459454432,31.0651115922958],[29.4178703276412,31.1215925002234],[29.1370901456549,31.0762289077209],[28.9151949256255,30.8950899525948],[28.6253725974239,30.7592357362503],[28.3400787431004,30.6731947325655],[27.9551584634576,30.6822516803218],[27.0941191323384,30.7461823057908],[26.3976141784547,31.0374480137785],[25.5111533280574,31.2020764574237],[24.5613738454889,31.2907225424635],[23.5482757307491,31.316049995332],[22.4591952574038,31.1767490045552],[21.496752048401,30.7715097586593],[20.7622559152146,30.1763146162497],[20.0150960555941,29.834394002525],[19.3692460074474,29.783739096788],[18.4068027984446,30.1003322576442],[18.0015635525487,30.5562264092771],[17.7862802031665,31.4300235332402],[17.9888998261145,31.8479265055703],[18.3561478927076,31.9112451377416]];
+
+var arabian_route = [[31.1845027706003,30.08766853121],[31.2604851292058,30.8981470230018],[31.1845027706003,31.8985814113073],[30.8679096097441,32.7913741249218],[30.4500066374139,33.7538173339246],[29.9054664007413,34.6656056371904],[29.5382183341481,35.3874380439425],[28.9050320124357,36.0586155449576],[28.0059074356042,36.7677842252755],[27.1827652173781,37.3503156412508],[26.1696671026383,37.9011877411406],[25.029931723556,38.534374062853],[23.852205165171,39.3068613753421],[22.7884521446942,39.9020565177517],[21.7246991242175,40.6238889245038],[20.4963176600955,41.3710487841244],[19.6731754418694,42.016898832271],[18.6854047799981,42.7260675125889],[17.7482890238638,43.3244285866071],[16.9631379849404,43.9449511818852],[16.0133585023719,44.6921110415058],[15.5701280771732,45.1733326460072]];
+
+var legio = L.icon({
+    iconUrl: 'img/legio2.svg',
+    iconSize: [38, 95],
+    });
+
+
+var marker1 = L.Marker.movingMarker(aethiopian_route,
+    [400, 500, 500, 600, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 3700,], { icon: legio, autostart: true, loop: true}).addTo(map);
+
+var marker2 = L.Marker.movingMarker(arabian_route,
+    [400, 400, 700, 700, 700, 700, 900, 900, 900, 700, 700, 700,700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 700, 3700,], { icon: legio, autostart: true, loop: true}).addTo(map);
+
+var p1 = [[ 50.06548812841816, 4.227321975708418  ], [50.408549599934389, 4.633655949430872  ], [  50.821076282897373, 5.202523512642306], [ 51.087280698945669, 5.592604127415862 ], [51.301179726552704, 6.063951536933908,  ]];
+
+antPolyline1 = L.polyline.antPath(p1, {"delay":446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+).addTo(map);
+
+var p2 =  [ [ 46.732662468421019, 5.592604127415862 ], [  47.01044618735294, 6.681579176992037 ], [  47.528789410098227, 7.738047508670416 ], [  48.009449543433249, 8.12812812344397 ], [48.66847905500078,  8.518208738217528 ] ];
+
+antPolyline2 = L.polyline.antPath(p2, {"delay":446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+).addTo(map);
+
+var p3 = [ [ 49.719955319341871, 6.844112766481018  ], [49.761969881857233, 7.217940022305675  ], [ 49.772467838243962, 7.656780713925927  ], [ 49.751469651913176, 8.111874764495074], [49.694227631472241, 8.50195537926863 ] ];
+
+antPolyline3 = L.polyline.antPath(p3, {"delay":446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+).addTo(map);
+
+var p4 = [  [45.8854454517259,14.7662391615417], [45.8544293511385,15.0780530174515], [45.8544293511385,15.4344117099199], [45.9061132367982,16.0431911428867], [46.0608764532642,16.5925774604421], [46.3486104253355,16.8598464797933], [46.5940402950354,17.0083292683218], [46.9094163149101,17.0677223837332], [47.3035594976955,16.9786327106161], [47.6747938275953,16.9043913163519] ];
+
+antPolyline4 = L.polyline.antPath(p4, {"delay":446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+).addTo(map);
+
+var p5 = [  [45.009092374045,16.6222740181477], [45.4808859711807,16.889543037499], [45.8130476265806,17.2310534511145], [46.1020735799368,17.5428673070244], [46.3895922647503,17.7655914898171], [46.6756043389558,17.9140742783456]];
+
+antPolyline5 = L.polyline.antPath(p5, {"delay":446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+).addTo(map);
+
+var a1 = [ [31.3099807432158,22.7765383539206 ], [  31.3099807432158,22.7765383539206], [ 31.1970189273606,23.4543092490518 ], [30.8863739337588,24.8663319472418  ],[  30.3921659893923,26.7584423628164], [ 29.8838378180439,27.9021807483503 ], [29.1354657880032,29.3283236735221  ]];
+
+antPolyline6 = L.polyline.antPath(a1, {"delay":446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+).addTo(map);
+
+var a2 = [[ 31.281740289252,34.2421626632232  ], [30.7310514369579,33.0560635967437 ], [ 30.1380019037181,32.2229702048116], [ 29.7426355482249,31.9123252112098 ], [29.3331489657498,31.8982049842279 ]];
+
+antPolyline7 = L.polyline.antPath(a2, {"delay":446,"dashArray":[10,20],"weight":5,"color":"red","pulseColor":"white","paused":false,"reverse":false}
+).addTo(map);
+
+		map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5.6 ){ map.removeLayer( antPolyline1 )}
+			 else if ( map.getZoom() >= 5.6 ){ map.addLayer( antPolyline1 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5.6 ){ map.removeLayer( antPolyline2 )}
+			 else if ( map.getZoom() >= 5.6 ){ map.addLayer( antPolyline2 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5.6 ){ map.removeLayer( antPolyline3 )}
+			 else if ( map.getZoom() >= 5.6 ){ map.addLayer( antPolyline3 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5.6 ){ map.removeLayer( antPolyline4 )}
+			 else if ( map.getZoom() >= 5.6 ){ map.addLayer( antPolyline4 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5.6 ){ map.removeLayer( antPolyline5 )}
+			 else if ( map.getZoom() >= 5.6 ){ map.addLayer( antPolyline5 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5 ){ map.removeLayer( antPolyline6 )}
+			 else if ( map.getZoom() >= 5 ){ map.addLayer( antPolyline6 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5 ){ map.removeLayer( antPolyline7 )}
+			 else if ( map.getZoom() >= 5 ){ map.addLayer( antPolyline7 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 4.9 ){ map.removeLayer( marker )}
+			 else if ( map.getZoom() >= 4.9 ){ map.addLayer( marker )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5 ){ map.removeLayer( marker1 )}
+			 else if ( map.getZoom() >= 5 ){ map.addLayer( marker1 )};
+		});
+        map.on('zoomend ', function(e) {
+			 if ( map.getZoom() < 5 ){ map.removeLayer( marker2 )}
+			 else if ( map.getZoom() >= 5 ){ map.addLayer( marker2 )};
+		});
+            return map;
+        }
+    });
+</script>
+</body>
+</html>
